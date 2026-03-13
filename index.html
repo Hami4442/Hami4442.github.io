@@ -480,6 +480,95 @@
             transform: scale(1.2);
         }
 
+        /* Video Category Styles */
+        .video-category {
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .category-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .category-header:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .category-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .category-arrow {
+            color: var(--accent-red);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .category-header.active .category-arrow {
+            transform: rotate(90deg);
+        }
+
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .category-content.active {
+            max-height: 2000px;
+        }
+
+        .video-links {
+            padding: 1.5rem;
+            list-style: none;
+        }
+
+        .video-link-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .video-link-item:last-child {
+            border-bottom: none;
+        }
+
+        .video-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .video-link:hover {
+            color: var(--accent-red);
+            transform: translateX(5px);
+        }
+
+        .video-link-icon {
+            color: var(--accent-red);
+            font-size: 0.875rem;
+            transition: transform 0.3s ease;
+        }
+
+        .video-link:hover .video-link-icon {
+            transform: scale(1.2);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -575,8 +664,23 @@
                 <div class="skill-items">Sound design, multi-cam, color correction, broadcast delivery</div>
             </div>
             <div class="skill-card">
-                <div class="skill-title">Workflow</div>
-                <div class="skill-items">Remote workflows, secure media delivery, fast turnaround</div>
+                <div class="skill-title">Emerging Tools</div>
+                <div class="skill-items">AI-assisted editing, generative video (workflow optimization)</div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <h3 style="font-family: 'Libre Baskerville', serif; font-size: 1.75rem; margin-bottom: 1.5rem; color: var(--text-light);">Education</h3>
+            <div style="display: grid; gap: 1.5rem;">
+                <div>
+                    <div style="font-weight: 600; color: var(--text-light); margin-bottom: 0.5rem;">Center for the Media Arts, NY</div>
+                    <div style="color: var(--text-gray);">Certificate, Television Technology</div>
+                </div>
+                <div>
+                    <div style="font-weight: 600; color: var(--text-light); margin-bottom: 0.5rem;">SUNY Stony Brook, NY</div>
+                    <div style="color: var(--text-gray);">M.A. in Music</div>
+                </div>
             </div>
         </div>
     </section>
@@ -666,55 +770,403 @@
             <div class="section-number">03</div>
             <h2>Reel & Work Samples</h2>
         </div>
-        <div class="video-grid">
-            <!-- Video 1: My Crazy Obsession - Mustard -->
-            <div style="padding:56.25% 0 0 0;position:relative;">
-                <iframe src="https://player.vimeo.com/video/558793965?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="My Crazy Obsession - Mustard excerpt"></iframe>
+
+        <!-- Sizzle Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">Sizzle</div>
+                <div class="category-arrow">▶</div>
             </div>
-            
-            <!-- Video 2: SPARQ Rating National Championship Finals -->
-            <div style="padding:56.25% 0 0 0;position:relative;">
-                <iframe src="https://player.vimeo.com/video/561601317?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="SPARQ Rating National Championship Finals 2011"></iframe>
-            </div>
-            
-            <!-- Video 3: Kingsford BBQ Championships -->
-            <div style="padding:75% 0 0 0;position:relative;">
-                <iframe src="https://player.vimeo.com/video/552631713?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Kingsford BBQ Championships"></iframe>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/1171816586" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Tom Hamilton sizzle reel</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <script src="https://player.vimeo.com/api/player.js"></script>
-        
-        <!-- Additional Work Links -->
-        <div style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-            <h3 style="font-family: 'Libre Baskerville', serif; font-size: 1.75rem; margin-bottom: 1.5rem; color: var(--text-light);">More Work</h3>
-            <ul class="show-list" style="list-style: none;">
-                <li class="show-item" style="padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                    <a href="https://vimeo.com/559201597" target="_blank" rel="noopener noreferrer" class="more-work-link">
-                        <span>▶</span> View on Vimeo
-                    </a>
-                </li>
-                <li class="show-item" style="padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                    <a href="https://vimeo.com/559201078" target="_blank" rel="noopener noreferrer" class="more-work-link">
-                        <span>▶</span> View on Vimeo
-                    </a>
-                </li>
-                <li class="show-item" style="padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                    <a href="https://vimeo.com/558793705" target="_blank" rel="noopener noreferrer" class="more-work-link">
-                        <span>▶</span> View on Vimeo
-                    </a>
-                </li>
-                <li class="show-item" style="padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                    <a href="https://vimeo.com/559202733" target="_blank" rel="noopener noreferrer" class="more-work-link">
-                        <span>▶</span> View on Vimeo
-                    </a>
-                </li>
-                <li class="show-item" style="padding: 1rem 0;">
-                    <a href="https://vimeo.com/558562654" target="_blank" rel="noopener noreferrer" class="more-work-link">
-                        <span>▶</span> View on Vimeo
-                    </a>
-                </li>
-            </ul>
+
+        <!-- MTV/VH1 Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">MTV/VH1</div>
+                <div class="category-arrow">▶</div>
+            </div>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/1172725555" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Love & Hip Hop season 13 pt1</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/1172726292" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Love & Hip Hop season 13 pt2</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/555394442" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Black Ink Crew Compton</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/552627829" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>MTVs The Seven Show open</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
+
+        <!-- TLC Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">TLC</div>
+                <div class="category-arrow">▶</div>
+            </div>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/556899218" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>90 Day Fiancé: Colt & Larissa</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/552413493" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>90 DF: Before the 90 Day Fiancé: Courtney & Antonio</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/254665781" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>90 DF: Happily Ever After Tell All EP 211</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/556914208" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>90DF: Pillow Talk TOW: Kenneth & Armando</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/555412755" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Unexpected: Chloe & Max</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/558599818" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>My Crazy Obsession - Strongest Family in the World</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Discovery/Discovery ID Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">Discovery/Discovery ID</div>
+                <div class="category-arrow">▶</div>
+            </div>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/253492956" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Homicide Hunter EP 508</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/119852121" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Homicide Hunter EP 408</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/555395502" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Murder Chose Me Ep 101 - Visits mom</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/558723887" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Pumpkin Chunkin excerpt</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- A&E Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">A&E</div>
+                <div class="category-arrow">▶</div>
+            </div>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/123510967" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>BAD INK Ep15 excerpt</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/122152670" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Wild Transport</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ABC Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">ABC</div>
+                <div class="category-arrow">▶</div>
+            </div>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/559201078" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Mickey Kross Petaque</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/552621604" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Nightline - Sugar Daddy - with Martin Bashir</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sports Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">Sports</div>
+                <div class="category-arrow">▶</div>
+            </div>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/116801796" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>3-SPARQ Rating National Championship Finals</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/552633204" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>U.S. Open SOT BUMP Djokovic</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/1168972129" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>The B1G Moments - Sebastian Elney Strikes Twice</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/552631867" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Cyclysm Sundays - David Miller Athlete Profile</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/552624176" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Tour de France & Cyclysm Sunday Open</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/559201597" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>NHL Network - Voices - Doc Emrick</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/552633496" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Zdano Chara Feature</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/558614436" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>PBR Promo</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Music Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">Music</div>
+                <div class="category-arrow">▶</div>
+            </div>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/552632214" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>X Games Festival 2002 - Green Day - Basket case</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/1162863833" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>X Games Festival 2002 - Green Day - Geek Stink breath</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Food Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">Food</div>
+                <div class="category-arrow">▶</div>
+            </div>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/120890637" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>US of Bacon LA excerpt</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/552631713" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Kingsford BBQ Championships</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Nat Geo Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">Nat Geo</div>
+                <div class="category-arrow">▶</div>
+            </div>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/558723066" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Doomsday Preppers excerpt</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/552569568" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Fish Tank Kings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- WE TV Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">WE TV</div>
+                <div class="category-arrow">▶</div>
+            </div>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/552515337" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Love After Lockup: Clint & Tracie - Tracie Interview</span>
+                        </a>
+                    </li>
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/552414512" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Love After Lockup: Clint & Tracie call</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Oxygen Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">Oxygen</div>
+                <div class="category-arrow">▶</div>
+            </div>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/555401030" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>Snapped Killer Couples: Hawkins & Hanson</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Corporate Category -->
+        <div class="video-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <div class="category-title">Corporate</div>
+                <div class="category-arrow">▶</div>
+            </div>
+            <div class="category-content">
+                <ul class="video-links">
+                    <li class="video-link-item">
+                        <a href="https://vimeo.com/1169017846" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <span class="video-link-icon">▶</span>
+                            <span>JAZZ PHARMACEUTICALS</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            function toggleCategory(header) {
+                const content = header.nextElementSibling;
+                const isActive = header.classList.contains('active');
+                
+                // Close all categories
+                document.querySelectorAll('.category-header').forEach(h => {
+                    h.classList.remove('active');
+                    h.nextElementSibling.classList.remove('active');
+                });
+                
+                // Open clicked category if it wasn't already open
+                if (!isActive) {
+                    header.classList.add('active');
+                    content.classList.add('active');
+                }
+            }
+        </script>
     </section>
 
     <!-- Contact Section -->
